@@ -1,0 +1,87 @@
+body{
+    width: 1000px;
+    margin: 0px 0px 0px 0px;
+    margin: 0 auto;
+}
+
+#inscript-form{
+    width: 35%;
+    margin: auto;
+    margin-top: 150px;
+    padding: 15px;
+    background-color: #434242;
+    border: solid #ce931d 3px;
+    border-radius: 8px;
+}
+
+.content-form-obj{
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    font: 15px arial, sans-serif;
+}
+
+.div-avatar-form{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly; 
+}
+
+.elem-from-div-avatar{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+}
+
+.elem-from-div-avatar img{
+    margin: 10px;
+    border: solid #ce931d 2px;
+    border-radius: 50%;
+}
+
+.content-form-obj input{
+    padding: 5px;
+    color: #FFB100;
+    background-color: #434242;
+    border: none;
+    border-bottom: #ce931d 2px solid;
+}
+
+.content-form-obj p{
+    padding-top: 7px;
+    font-size:smaller;
+    margin: 0;
+    color: #DC3535;
+    font: arial, sans-serif;
+}
+
+#submit-inscript-form{
+
+    background: #FFB100;
+    color: white;
+    border: solid #ce931d 2px;
+    border-radius: 15px;
+    height: 35px;
+    width: 140px;
+    font: bold 15px arial, sans-serif;
+    text-shadow:none;
+}
+
+#div-submit-inscript-form{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#submit-inscript-form:hover{
+    background: white;
+    color: #FFB100;
+}
+
+#title-form-inscript{
+    color: white;
+    font: bold 15px arial, sans-serif;
+}
