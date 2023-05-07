@@ -1,0 +1,208 @@
+body {
+  width: 1000px;
+  margin: auto;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  height: 100%;
+}
+
+.CaseJeux {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-image: url("../Image/NpiN3N.png");
+  border-radius: 20px;
+  border: solid black 2px;
+  height: 100px;
+  width: 60%;
+  margin-top: 50px;
+}
+
+.CaseJeux:hover {
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  transition-duration: 2s, 1s;
+}
+
+.Play {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Play Img {
+  height: 40px;
+  width: 150px;
+}
+
+.NomJeux {
+  background-color: lightgray;
+  color: black;
+  padding: 20px;
+  border: solid black 4px;
+  border-radius: 10px;
+}
+
+header {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-image: url("../Image/header.avif");
+}
+
+#Home {
+  background-color: white;
+  border: solid lightgray 4px;
+  border-radius: 100%;
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+#Home img {
+  height: 50px;
+  width: 50px;
+}
+
+#Connection {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  color: white;
+  font-size: 4em;
+  margin: 0px;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+footer {
+  text-align: center;
+  margin: auto;
+  margin-top: 50px;
+  height: 150px;
+  max-height: 150px;
+  background-color: black;
+  /*background-image: url("../Image/header.avif");*/
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+footer img {
+  height: 100px;
+  width: auto;
+  border:solid white 3px;
+  border-radius: 20px;
+}
+
+article {
+  min-height: 80%;
+}
+
+li {
+  list-style: none;
+  color: white;
+}
+
+ul {
+  padding: 0px;
+}
+
+
+#inscript-form{
+  width: 35%;
+  margin: auto;
+  margin-top: 70px;
+  padding: 15px;
+  background-color: rgb(30, 29, 29);
+  border: solid #ce931d 3px;
+  border-radius: 8px;
+}
+
+.content-form-obj{
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  font: 15px arial, sans-serif;
+}
+
+.div-avatar-form{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly; 
+}
+
+.elem-from-div-avatar{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+}
+
+.elem-from-div-avatar img{
+  margin: 10px;
+  border: solid #ce931d 2px;
+  border-radius: 50%;
+}
+
+.content-form-obj input{
+  padding: 5px;
+  color: #FFB100;
+  background-color: #434242;
+  border: none;
+  border-bottom: #ce931d 2px solid;
+}
+
+.content-form-obj p{
+  padding-top: 7px;
+  font-size:smaller;
+  margin: 0;
+  color: #DC3535;
+  font: arial, sans-serif;
+}
+
+#submit-inscript-form{
+
+  background: #FFB100;
+  color: white;
+  border: solid #ce931d 2px;
+  border-radius: 15px;
+  height: 35px;
+  width: 140px;
+  font: bold 15px arial, sans-serif;
+  text-shadow:none;
+}
+
+#div-submit-inscript-form{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#submit-inscript-form:hover{
+  background: white;
+  color: #FFB100;
+}
+
+#title-form-inscript{
+  color: white;
+  font: bold 15px arial, sans-serif;
+}
+
+#DejaInscrit{
+  color: white;
+   text-decoration: none;
+}
+
+#DejaInscrit:hover{
+  text-decoration: underline;
+}
