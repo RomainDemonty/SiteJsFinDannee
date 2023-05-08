@@ -15,3 +15,14 @@ Réalisation souhaitée:
 - Liens vers les jeux
 - Tableau des scores
 -
+
+Base de donnée: 
+Utilisateur :
+  -Nom
+  -Mdp
+  -Photo
+  -Adresse mail(supprimer)
+Score :
+  -Jeux(numéro ou nom)
+  -utilisateur
+  -score fait
