@@ -3,7 +3,7 @@ body {
   margin: auto;
   border-left: solid black 1px;
   border-right: solid black 1px;
-  height: 100%;
+  min-height: 100%;
 }
 
 .CaseJeux {
@@ -12,12 +12,34 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-image: url("../Image/NpiN3N.png");
   border-radius: 20px;
   border: solid black 2px;
   height: 100px;
   width: 60%;
   margin-top: 50px;
+}
+
+#Jeux1{
+  background-image: url("../Image/HillClimbRacing.webp");
+  background-size: cover;
+  background-position: center 42%;
+}
+
+#Jeux2{
+  background-image: url("../Image/RestoImage.jpg");
+  background-size: cover;
+  background-position: center 50%;
+}
+
+#Jeux3{
+  background-image: url("../Image/PotagerImage.jpg");
+  background-size: cover;
+}
+
+#Jeux4{
+  background-image: url("../Image/PacmanImage.png");
+  background-size: cover;
+  background-position: center 50%;
 }
 
 .CaseJeux:hover {
@@ -38,7 +60,7 @@ body {
 }
 
 .NomJeux {
-  background-color: lightgray;
+  background-color: white;
   color: black;
   padding: 20px;
   border: solid black 4px;
@@ -51,6 +73,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  height: 110px;
   background-image: url("../Image/header.avif");
 }
 
@@ -102,10 +125,6 @@ footer img {
   border-radius: 20px;
 }
 
-article {
-  min-height: 80%;
-}
-
 li {
   list-style: none;
   color: white;
@@ -121,7 +140,7 @@ ul {
   margin: auto;
   margin-top: 70px;
   padding: 15px;
-  background-color: rgb(30, 29, 29);
+  background-color: rgb(64, 64, 64);
   border: solid #ce931d 3px;
   border-radius: 8px;
 }
@@ -205,4 +224,67 @@ ul {
 
 #DejaInscrit:hover{
   text-decoration: underline;
+}
+
+#DivConnect{
+  border: black 2px solid;
+  border-radius: 20px;
+  padding: 10px;
+  width:300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  flex-direction:column;
+  background-color: rgb(64, 64, 64);
+  height: 70%;
+  border: solid 3px #f39f20;
+  /*box-shadow: 12px 12px 2px 1px lightyellow;*/
+}
+
+#bouton{
+  margin-left: 20px;
+  background-color: #f39f20;
+  /*background: linear-gradient(to right, #FFB100, lightyellow);*/
+  color: white;
+  width: 85%;
+  border-radius: 15px;
+  margin-left: 5px;
+  font-size: larger;
+  border: solid #FFB100 2px;
+}
+
+#inscription
+{
+    color:white;
+    text-decoration: none;
+    margin-left: 22px;
+    margin-top: 8px;
+    font-size: larger;
+}
+
+#inscription:hover{
+  text-decoration: underline;
+}
+
+input {
+  width: 80%;
+  border: solid black 2px;
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+  font-size: larger;
+  border-radius: 7px;
+}
+
+#titre{
+  text-align: center;
+  background-color: white;
+  /*background: linear-gradient(to right, #FFB100, lightyellow);*/
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+form p {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.2em;
 }
