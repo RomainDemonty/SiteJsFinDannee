@@ -7,12 +7,12 @@ Dernière modifications apportées:
 - Liaison des pages
 - Adaptation du css
 - Ajout des images aux jeux
--
--
+- Liens vers les jeux 
+- Faire le fichier BD
 
 Réalisation souhaitée: 
 - Inscription dans une base de donnée
-- Liens vers les jeux
+- Liens vers le jeux d'Adrien
 - Tableau des scores
 -
 
