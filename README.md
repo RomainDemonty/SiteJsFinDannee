@@ -15,7 +15,7 @@ Réalisation souhaitée:
 - Inscription dans une base de donnée
 - header connect/pas connect
 - Tableau des scores
--page commune aux jeux
+- page commune aux jeux
 
 Base de donnée: 
 Utilisateur :
