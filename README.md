@@ -9,12 +9,13 @@ Dernière modifications apportées:
 - Ajout des images aux jeux
 - Liens vers les jeux 
 - Faire le fichier BD
+- Liens vers le jeux d'Adrien
 
 Réalisation souhaitée: 
 - Inscription dans une base de donnée
-- Liens vers le jeux d'Adrien
+- header connect/pas connect
 - Tableau des scores
--
+-page commune aux jeux
 
 Base de donnée: 
 Utilisateur :
