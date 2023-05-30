@@ -5,12 +5,11 @@ CREATE TABLE utilisateur
 (
     pseudo varchar(25) NOT NULL,
     mdp varchar(255) NOT NULL,
-    NumPhoto int (5) NOT NULL,
     PRIMARY KEY (pseudo)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO utilisateur (pseudo, mdp, NumPhoto) VALUES
-('Romain', 'Test1', 1);
+INSERT INTO utilisateur (pseudo, mdp) VALUES
+('Romain', 'Test1');
 
 CREATE TABLE score
 (

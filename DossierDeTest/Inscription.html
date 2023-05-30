@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./CSS/style.css" rel="stylesheet" type="text/Css" />
     <link rel="icon" href="./Image/Logo.png" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./Controleurs/script.js" defer></script>
     <title>Je m'inscris</title>
 </head>
@@ -22,51 +23,19 @@
         </div>
       </header>
 
-    <form action="./Controleurs/inscription.php"  id="inscript-form" method="post">
+    <form action=""  id="myForm" method="POST">
         <div>
             <h3 id="title-form-inscript">Inscrivez-vous...</h3>
         </div>
-        
-        <!--<div class="content-form-obj">
-            <input id="mail-adress" type="text" placeholder="Entre ton adresse mail...">
-            <p id="err-mail-adress"></p>
-        </div>-->
         <div class="content-form-obj">
-            <input type="password" id="password" name="nom" placeholder="Entre un mot de passe...">
-            <p id="err-password"></p>
+          <input id="username" type="text" name="username" placeholder="Entre un pseudo...">
         </div>
         <div class="content-form-obj">
-            <input id="username" type="text" name="motdepasse" placeholder="Entre un pseudo...">
-            <p id="err-username"></p>
-        </div>
-        <div class="content-form-obj">
-            <p id="err-avatar"></p>
-            <div class="div-avatar-form">
-                <div class="elem-from-div-avatar">
-                    <input class="inp-radio" type="radio" name="avatar" id="avt1-form-inscript">
-                    <img src="./Image/avt1.jpg" alt="avatar-1" height="60px" width="60px">
-                </div>
-                <div class="elem-from-div-avatar">
-                    <input class="inp-radio" type="radio" name="avatar" id="avt2-form-inscript">
-                    <img src="./Image/avt4.png" alt="avatar-2" height="60px" width="60px">
-                </div>
-                <div class="elem-from-div-avatar">
-                    <input class="inp-radio" type="radio" name="avatar" id="avt3-form-inscript">
-                    <img src="./Image/avt3.jpg" alt="avatar-3" height="60px" width="60px">
-                </div>
-                <div class="elem-from-div-avatar">
-                    <input class="inp-radio" type="radio" name="avatar" id="avt4-form-inscript">
-                    <img src="./Image/avt4.jpg" alt="avatar-4" height="60px" width="60px">
-                </div>
-                <div class="elem-from-div-avatar">
-                    <input class="inp-radio" type="radio" name="avatar" id="avt5-form-inscript">
-                    <img src="./Image/avatar2.png" alt="avatar-5" height="60px" width="60px">
-                </div>
-            </div>
+            <input type="password" id="password" name="password" placeholder="Entre un mot de passe...">
         </div>
         <a href="./Connexion.html" id="DejaInscrit">Déjà inscrit, connectez vous ici...</a>
         <div id="div-submit-inscript-form">
-          <button id="submit-inscript-form" type="submit" >S'inscrire</button>
+          <input id="submit-inscript-form" type="submit" value="S'inscrire">
         </div>
     </form>
 

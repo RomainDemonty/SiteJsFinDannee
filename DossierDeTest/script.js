@@ -59,7 +59,7 @@ $(document).ready(function() {
     
     $.ajax({
       type: 'POST',
-      url: './Controleurs/RedirectionModele.php',
+      url: 'RedirectionModele.php',
       data: {action:'AjoutUser', username: username, password: password},
       success: function(response) {
         showMessage('Données envoyées avec succès');

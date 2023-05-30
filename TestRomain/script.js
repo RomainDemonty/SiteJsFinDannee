@@ -2,65 +2,58 @@ $(document).ready(function() {
     $('#myForm').submit(function(event) {
       event.preventDefault();
       
-      var username = $('#username').val();
-      var password = $('#password').val();
+      var name = $('#name').val();
+      var email = $('#email').val();
       
-      if (validateForm(username, password)) {
-        sendData(username, password);
+      if (validateForm(name, email)) {
+        sendData(name, email);
       }
-      console.log("user name:" + username);
-      console.log("Password:" + username);
     });
   });
   
-  function validateForm(username, password) {
+  function validateForm(name, email) {
     // Ajoutez ici vos propres validations de données
     
-    if (username === '') {
+    if (name === '') {
       showMessage('Veuillez entrer un nom');
       return false;
     }
     
-    if (password === '') {
-      showMessage('Veuillez entrer un mot de passe');
+    if (email === '') {
+      showMessage('Veuillez entrer une adresse email');
       return false;
     }
     
-    /*
-    if (!isValidEmail(password)) {
+    if (!isValidEmail(email)) {
       showMessage('Veuillez entrer une adresse email valide');
       return false;
     }
-    */
-
+    
     return true;
   }
   
-  /*
   function isValidEmail(email) {
     // Validation basique de l'adresse email
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
   }
-  */
   
   function showMessage(message) {
     $('#message').text(message);
   }
   
-  function sendData(username, password) {
-    /*
+  function sendData(name, email) {
+    var nb = 2;
     var formData = {
-        password: password,
-        username: username,
-        action:'AjoutUser'
+      name: name,
+      mdp: email,
+      nombre : nb
     };
-    */
     
     $.ajax({
       type: 'POST',
-      url: './Controleurs/RedirectionModele.php',
-      data: {action:'AjoutUser', username: username, password: password},
+      url: 'insert.php',
+      data: formData,
       success: function(response) {
         showMessage('Données envoyées avec succès');
         // Réinitialiser le formulaire ici si nécessaire
@@ -69,5 +62,4 @@ $(document).ready(function() {
         showMessage('Une erreur s\'est produite lors de l\'envoi des données');
       }
     });
-    console.log("envoie");
   }

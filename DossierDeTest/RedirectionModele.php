@@ -1,5 +1,5 @@
 <?php
-include './Controleurs/Modele.php';
+include 'modele.php';
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
