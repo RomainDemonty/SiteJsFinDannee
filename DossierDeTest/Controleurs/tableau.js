@@ -69,8 +69,8 @@ function afficherScores() {
           const scoreCell = row.insertCell();
           const score = scores[i];
   
-          if (score.jeu === jeu) {
-            scoreCell.textContent = score.nom + ' : ' + score.score;
+          if (score.NomJeux === jeu) {
+            scoreCell.textContent = score.pseudo + ' : ' + score.score;
           }
         });
       }
