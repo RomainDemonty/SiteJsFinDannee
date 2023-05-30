@@ -4,7 +4,7 @@ include './modele.php';
 $conn = CONNECT();
 
 // Récupération des scores depuis la table scores
-$sql = "SELECT NomJeux,pseudo,score FROM score ORDER BY score";
+$sql = "SELECT NomJeux,pseudo,score FROM score ORDER BY score DESC";
 $result = $conn->query($sql);
 
 $scores = array();
