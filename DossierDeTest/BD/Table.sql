@@ -1,3 +1,6 @@
+DROP TABLE utilisateur;
+DROP TABLE score;
+
 CREATE TABLE utilisateur
 (
     pseudo varchar(25) NOT NULL,
@@ -20,3 +23,11 @@ CREATE TABLE score
 
 INSERT INTO score (NomJeux, pseudo, score) VALUES
 ('Overcook', 'Romdem', 100);
+
+INSERT INTO score (NomJeux, pseudo, score) VALUES
+('Overcook', 'Max', 200);
+
+INSERT INTO score (NomJeux, pseudo, score) VALUES
+('LePotagerDeJerry', 'Noa', 400);
+INSERT INTO score (NomJeux, pseudo, score) VALUES
+('LePotagerDeJerry', 'Romdem', 300);

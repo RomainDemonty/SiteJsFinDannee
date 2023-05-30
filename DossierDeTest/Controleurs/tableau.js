@@ -62,15 +62,24 @@ function afficherScores() {
         jeuHeader.textContent = jeu.toUpperCase();
       });
   
-      for (let i = 0; i < scores.length; i++) {
+      // Obtient le nombre maximum de scores pour un jeu donné
+      let maxScores = 0;
+      jeux.forEach(jeu => {
+        const jeuScores = scores.filter(score => score.NomJeux === jeu);
+        if (jeuScores.length > maxScores) {
+          maxScores = jeuScores.length;
+        }
+      });
+  
+      for (let i = 0; i < maxScores; i++) {
         const row = scoresTable.insertRow();
   
         jeux.forEach(jeu => {
           const scoreCell = row.insertCell();
-          const score = scores[i];
+          const jeuScores = scores.filter(score => score.NomJeux === jeu);
   
-          if (score.NomJeux === jeu) {
-            scoreCell.textContent = score.pseudo + ' : ' + score.score;
+          if (jeuScores[i]) {
+            scoreCell.textContent = jeuScores[i].pseudo + ' : ' + jeuScores[i].score;
           }
         });
       }
