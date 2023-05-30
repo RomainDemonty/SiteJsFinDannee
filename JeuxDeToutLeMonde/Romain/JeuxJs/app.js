@@ -56,7 +56,7 @@ Dep = true;
 
 //Timer
 var timerText;
-var timer = 3;
+var timer = 180;
 
 //Score
 var ScoreText;
@@ -588,7 +588,7 @@ function afficherFenetre(Score) {
   boutonQuitter.style.top = "95%";
   boutonQuitter.style.transform = "translate(-50%, -50%)";
   boutonQuitter.onclick = function() {
-    window.location.href = "../index.html"; // Redirection vers une autre page
+    window.location.href = "#"; // Redirection vers une autre page
   };
 
   fenetre.appendChild(contenu);
