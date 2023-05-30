@@ -12,8 +12,11 @@ INSERT INTO utilisateur (pseudo, mdp, NumPhoto) VALUES
 CREATE TABLE score
 (
     IdScore int(255) NOT NULL AUTO_INCREMENT,
-    NumJeux int(11) NOT NULL,
+    NomJeux varchar(25) NOT NULL,
     pseudo varchar(25) NOT NULL,
     score int(255) NOT NULL,
     PRIMARY KEY (IdScore)
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO score (NomJeux, pseudo, score) VALUES
+('Overcook', 'Romdem', 100);

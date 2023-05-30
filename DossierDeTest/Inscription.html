@@ -22,20 +22,21 @@
         </div>
       </header>
 
-    <form action="" id="inscript-form">
+    <form action="./Controleurs/inscription.php"  id="inscript-form" method="post">
         <div>
             <h3 id="title-form-inscript">Inscrivez-vous...</h3>
         </div>
-        <div class="content-form-obj">
+        
+        <!--<div class="content-form-obj">
             <input id="mail-adress" type="text" placeholder="Entre ton adresse mail...">
             <p id="err-mail-adress"></p>
-        </div>
+        </div>-->
         <div class="content-form-obj">
-            <input type="password" id="password" placeholder="Entre un mot de passe...">
+            <input type="password" id="password" name="nom" placeholder="Entre un mot de passe...">
             <p id="err-password"></p>
         </div>
         <div class="content-form-obj">
-            <input id="username" type="text" placeholder="Entre un pseudo...">
+            <input id="username" type="text" name="motdepasse" placeholder="Entre un pseudo...">
             <p id="err-username"></p>
         </div>
         <div class="content-form-obj">
@@ -65,7 +66,7 @@
         </div>
         <a href="./Connexion.html" id="DejaInscrit">Déjà inscrit, connectez vous ici...</a>
         <div id="div-submit-inscript-form">
-            <input id="submit-inscript-form" type="submit" value="S'inscrire">
+          <button id="submit-inscript-form" type="submit" >S'inscrire</button>
         </div>
     </form>
 

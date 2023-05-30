@@ -12,6 +12,7 @@ form.addEventListener('submit', function(e) {
     errPassword.innerHTML = "";
     errAvatar = "";
 
+    /*
     let mail = document.getElementById('mail-adress');
     let regexMail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(mail.value == "" || regexMail.test(mail.value) == false)
@@ -22,6 +23,7 @@ form.addEventListener('submit', function(e) {
         else
             errMail.innerHTML = "Adresse mail invalide!";
     }
+    */
 
     let password = document.getElementById('password');
     let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})$/;

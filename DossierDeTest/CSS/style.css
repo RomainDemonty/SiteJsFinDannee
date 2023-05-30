@@ -287,3 +287,46 @@ form p {
   text-decoration: underline;
   font-size: 1.2em;
 }
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+table {
+  width: 65%;
+  border-collapse: collapse;
+  margin: auto;
+  margin-top: 30px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 2px solid black;
+  text-align: center;
+  color: #434242;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(2){
+  background-color: gold;
+}
+
+tr:nth-child(3){
+  background-color: silver;
+}
+
+tr:nth-child(4){
+  background-color: #cd7f32;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
