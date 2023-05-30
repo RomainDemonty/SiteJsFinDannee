@@ -56,7 +56,7 @@ Dep = true;
 
 //Timer
 var timerText;
-var timer = 300;
+var timer = 3;
 
 //Score
 var ScoreText;
@@ -588,7 +588,7 @@ function afficherFenetre(Score) {
   boutonQuitter.style.top = "95%";
   boutonQuitter.style.transform = "translate(-50%, -50%)";
   boutonQuitter.onclick = function() {
-    window.location.href = "#"; // Redirection vers une autre page
+    window.location.href = "../index.html"; // Redirection vers une autre page
   };
 
   fenetre.appendChild(contenu);
@@ -1028,6 +1028,11 @@ function update() {
                                 AE = 24;
                               break;
                             }
+                            assi.destroy();
+                            assi = this.physics.add.sprite(485, 355, "PoeleCuiss",AE);
+                            player.anims.play("PoeleSale", true);
+                            Etat = 17;
+                            C1 = 10;
                           }
 
                           if(AE == 25)//Pain seul
@@ -1044,12 +1049,12 @@ function update() {
                                 AE = 30;
                               break;
                             }
+                            assi.destroy();
+                            assi = this.physics.add.sprite(485, 355, "PoeleCuiss",AE);
+                            player.anims.play("PoeleSale", true);
+                            Etat = 17;
+                            C1 = 10;
                           }
-                          assi.destroy();
-                          assi = this.physics.add.sprite(485, 355, "PoeleCuiss",AE);
-                          player.anims.play("PoeleSale", true);
-                          Etat = 17;
-                          C1 = 10;
                         }
                       }
                     }
