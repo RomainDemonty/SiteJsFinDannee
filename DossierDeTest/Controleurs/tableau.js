@@ -62,7 +62,7 @@ function afficherScores() {
         jeuHeader.textContent = jeu.toUpperCase();
       });
   
-      // Obtient le nombre maximum de scores pour un jeu donné
+      // Obtient le nombre maximum de scores pour un jeu donné donc si 5 scores pour un jeux 5 lignes
       let maxScores = 0;
       jeux.forEach(jeu => {
         const jeuScores = scores.filter(score => score.NomJeux === jeu);

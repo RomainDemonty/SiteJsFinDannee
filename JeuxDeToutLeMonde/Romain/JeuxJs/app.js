@@ -56,7 +56,7 @@ Dep = true;
 
 //Timer
 var timerText;
-var timer = 180;
+var timer = 30;
 
 //Score
 var ScoreText;
@@ -527,9 +527,11 @@ function onTimerTick() {
   timerText.setText('Temps restant : ' + Min + 'min' + timer%60 +'sec');
 
   // Si le timer atteint 0, arrêt du jeu
-  if (timer === 0) {
-      afficherFenetre(Score);
-      this.scene.pause();
+  if (timer === 0) 
+  {
+    afficherFenetre(Score);
+    Envoie();
+    this.scene.pause();
   }
   console.log(timer);
 
@@ -546,6 +548,26 @@ window.addEventListener('load', function() {
   afficherFenetre(0); // Affiche la fenêtre modale avec un score initial de 0
 });
 */
+
+function Envoie(){
+
+  var pseudo = "BonjourTest";
+  var jeu = "Overcook";
+  $.ajax({
+    url: "./RedirectionModele.php",
+    method: "POST",
+    data: { action:'AjoutScore', score: Score, pseudo: pseudo, NomJeux: jeu },
+    success: function(response) {
+      console.log(response); // Affiche la réponse du script PHP dans la console
+      console.log('Reussite');
+    },
+    error: function(xhr, status, error) {
+      console.error(error); // Affiche l'erreur en cas d'échec de la requête AJAX
+      console.log('Rate');
+  }
+});
+}
+
 
 
 function afficherFenetre(Score) {
