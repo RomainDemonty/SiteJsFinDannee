@@ -56,7 +56,7 @@ Dep = true;
 
 //Timer
 var timerText;
-var timer = 3;
+var timer = 300;
 
 //Score
 var ScoreText;
