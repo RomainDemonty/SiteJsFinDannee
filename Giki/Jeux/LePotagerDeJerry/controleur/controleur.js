@@ -257,7 +257,7 @@ function afficherFenetre() {
     boutonQuitter.style.border = "2px solid black";
     boutonQuitter.style.borderRadius = "5px";
     boutonQuitter.onclick = function() {
-    window.location.href = "#"; // Redirection vers une autre page
+    window.location.href = "../index.html"; // Redirection vers une autre page
     };
 
     fenetre.appendChild(contenu);
