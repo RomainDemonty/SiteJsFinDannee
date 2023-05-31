@@ -38,7 +38,7 @@ class Preloader extends Phaser.Scene {
   class Game extends Phaser.Scene {
     constructor() {
       super({key: "Game"});
-      
+      this.score = 0;
       this.map = null;
       this.layer = null; 
       this.pacman = null;
@@ -252,7 +252,8 @@ class Preloader extends Phaser.Scene {
     }
     gameOver() {
       console.log("Game Over! Score: " + this.score);
-      afficherFenetre(this.score);
+      score = this.score
+      afficherFenetre(score);
       Envoie();
       this.scene.pause();
     }
@@ -346,20 +347,18 @@ class Preloader extends Phaser.Scene {
   function afficherFenetre(Score) {
     var fenetre = document.createElement("div");
     fenetre.style.position = "fixed";
-    fenetre.style.width = "200px";
+    fenetre.style.width = "400px";
     fenetre.style.height = "200px";
     fenetre.style.backgroundColor = "white";
-    fenetre.style.border = "3px solid lightgray";
-    fenetre.style.borderRadius = "20px";
     fenetre.style.top = "50%";
     fenetre.style.left = "50%";
     fenetre.style.transform = "translate(-50%, -50%)";
   
     var contenu = document.createElement("div");
-    contenu.innerHTML = "Score: " + Score;
+    contenu.innerHTML = "Score: " + Score + "<p>Game Over <p> Veux-tu rejouer ?";
   
     var boutonJouer = document.createElement("button");
-    boutonJouer.innerHTML = "Jouer";
+    boutonJouer.innerHTML = "Rejouer";
     boutonJouer.style.position = "absolute";
     boutonJouer.style.left = "50%";
     boutonJouer.style.top = "70%";
@@ -367,19 +366,9 @@ class Preloader extends Phaser.Scene {
     boutonJouer.onclick = function() {
       location.reload();
     };
-    var boutonQuitter = document.createElement("button");
-    boutonQuitter.innerHTML = "Quitter";
-    boutonQuitter.style.position = "absolute";
-    boutonQuitter.style.left = "50%";
-    boutonQuitter.style.top = "95%";
-    boutonQuitter.style.transform = "translate(-50%, -50%)";
-    boutonQuitter.onclick = function() {
-      window.location.href = "#"; // Redirection vers une autre page
-    };
   
     fenetre.appendChild(contenu);
     fenetre.appendChild(boutonJouer);
-    fenetre.appendChild(boutonQuitter);
   
     document.body.appendChild(fenetre);
   }
@@ -402,16 +391,13 @@ class Preloader extends Phaser.Scene {
   }
   
   var game;
-  var username;
+  var username
 
   function demarreJeu() 
   {
     if(isLoggedIn())
     {
         game = new Phaser.Game(config);
-        
-        username = getCookie("pseudo");
-        console.log(username);
     }
     else
     {
