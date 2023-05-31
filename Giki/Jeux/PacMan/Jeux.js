@@ -402,7 +402,7 @@ class Preloader extends Phaser.Scene {
     else
     {
         console.log("Pas loggé");
-        window.location.href = "/Giki/Connexion.html";
+        window.location.href = "../../Connexion.html";
     }
   }
 
