@@ -1,28 +1,5 @@
-// Vérifier si l'utilisateur est connecté
-function isLoggedIn() 
-{
-    var sessionCookie = getCookie("pseudo");
-    return sessionCookie !== null && sessionCookie !== "";
-}
-
-// Fonction pour récupérer la valeur d'un cookie
-function getCookie(name) 
-{
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1, c.length);
-      }
-      if (c.indexOf(nameEQ) == 0) {
-        return c.substring(nameEQ.length, c.length);
-      }
-    }
-    return null;
-}
-
 var game;
+var username;
 
 const config = {
     type: Phaser.AUTO,
@@ -47,6 +24,9 @@ function demarreJeu()
     if(isLoggedIn())
     {
         game = new Phaser.Game(config);
+
+        username = getCookie("pseudo");
+        console.log(username);
     }
     else
     {
@@ -639,9 +619,7 @@ function arretJeu()
 
 function sendData()
 {
-    var username = "Nyrox";
     var nomJeu = "BallJumping";
-
     $.ajax({
         url: 'RedirectionModele.php',
         method: 'POST',

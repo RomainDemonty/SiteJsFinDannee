@@ -29,7 +29,27 @@ var config =
 };
 
 //  DECLARATION DE VARIABLE
-var game = new Phaser.Game(config);
+var game;
+var username;
+
+function demarreJeu()
+{
+    if(isLoggedIn())
+    {
+        game = new Phaser.Game(config);
+
+        username = getCookie("pseudo");
+        console.log(username);
+    }
+    else
+    {
+        console.log("Pas loggé");
+        window.location.href = "/Giki/Connexion.html";
+    }
+}
+
+demarreJeu();
+
 var jerry;
 var bool=0;
 var randomNum=0;
@@ -250,13 +270,11 @@ function afficherFenetre() {
 //fonciton pour ajouter le score a la bd
 
 function Envoie(){
-
-    var pseudo = "testmax";
     var jeu = "LePotagerDeJerry";
     $.ajax({
       url: "RedirectionModele.php",
       method: "POST",
-      data: { action:'AjoutScore', score: score, pseudo: pseudo, NomJeux: jeu },
+      data: { action:'AjoutScore', score: score, pseudo: username, NomJeux: jeu },
       success: function(response) {
         console.log(response); // Affiche la réponse du script PHP dans la console
         console.log('Reussite');

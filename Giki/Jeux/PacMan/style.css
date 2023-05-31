@@ -1,0 +1,41 @@
+*
+{
+    text-align: center;
+
+}
+header {
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 110px;
+  }
+
+  h1 {
+  color: white;
+  font-size: 4em;
+  margin: 0;
+  text-decoration: underline;
+  font-style: italic;
+}
+  footer {
+    text-align: center;
+    margin: auto;
+    bottom: 0;
+    height: 150px;
+    max-height: 150px;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+  }
+  
+  li {
+    list-style: none;
+    color: white;
+  }
+  
+  ul {
+    padding: 0px;
+  }

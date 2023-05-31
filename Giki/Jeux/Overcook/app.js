@@ -19,6 +19,27 @@ var config = {
   }
 };
 
+var game;
+var username;
+
+function demarreJeu()
+{
+    if(isLoggedIn())
+    {
+        game = new Phaser.Game(config);
+
+        username = getCookie("pseudo");
+        console.log(username);
+    }
+    else
+    {
+        console.log("Pas loggé");
+        window.location.href = "/Giki/Connexion.html";
+    }
+}
+
+demarreJeu();
+
 var player;
 var Poele;//Afficher les sprites de la poele
 var Cuiss1;//Poele de cuisson 1
@@ -39,7 +60,6 @@ brule = false;
 avancement = 0; //Cuisson de l'élément de départ
 
 var cursors;
-var game = new Phaser.Game(config);
 
 var Etat;//Savoir le bonhomme est comment
 
@@ -550,13 +570,11 @@ window.addEventListener('load', function() {
 */
 
 function Envoie(){
-
-  var pseudo = "BonjourTest";
   var jeu = "Overcook";
   $.ajax({
     url: "RedirectionModele.php",
     method: "POST",
-    data: { action:'AjoutScore', score: Score, pseudo: pseudo, NomJeux: jeu },
+    data: { action:'AjoutScore', score: Score, pseudo: username, NomJeux: jeu },
     success: function(response) {
       console.log(response); // Affiche la réponse du script PHP dans la console
       console.log('Reussite');
