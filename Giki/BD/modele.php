@@ -51,15 +51,13 @@ function AjoutUser($username, $password)
     }
 
     $sql = "INSERT INTO utilisateur (pseudo,mdp) VALUES ('$username', '$password')";
-    if($conn->query($sql) == false)
-    {
+    if ($conn->query($sql) == false) {
         $result = -1;
         /*$erreur = $con->error;
         if(strpos($erreur, '1062') != false){
             $result = -1;
         }*/
-    }
-    else {
+    } else {
         $result = 1;
     }
 
@@ -76,21 +74,17 @@ function VerifCO($username, $password)
     }
 
     //envoi une requete a la bdd
-    $sql="SELECT pseudo FROM utilisateur WHERE pseudo = '$username' AND mdp = '$password'";
-    
+    $sql = "SELECT pseudo FROM utilisateur WHERE pseudo = '$username' AND mdp = '$password'";
+
     //récupère le résultat
-    $result = mysqli_query($conn,$sql);
-    if($result)
-    {
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
         //Prendre la ligne résultante de la requête 
-        $row = $result -> fetch_row(); 
-        if($row)
-        {
+        $row = $result->fetch_row();
+        if ($row) {
             echo "Les identifiants sont correctes";
             //$_SESSION['connexion'] = true;
-        }
-        else
-        {
+        } else {
             echo "Les identifiants sont faux";
         }
     }
@@ -107,7 +101,7 @@ function RecupereScores()
     $conn = CONNECT();
 
     // Récupération des scores depuis la table scores
-    $sql = "SELECT NomJeux,pseudo,score FROM score ORDER BY score DESC";
+    $sql = "SELECT NomJeux, pseudo, score FROM score WHERE score <> 0 ORDER BY score DESC;";
     $result = $conn->query($sql);
 
     $scores = array();
