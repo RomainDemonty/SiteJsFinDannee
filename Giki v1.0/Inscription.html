@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./CSS/style.css" rel="stylesheet" type="text/Css" />
+    <link rel="icon" href="./Image/Logo.png" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./Controleurs/C_inscription.js" defer></script>
+    <title>Je m'inscris</title>
+</head>
+<body>
+    <header>
+        <div id="Home">
+          <a href="./index.html"><img src="./Image/Logo.png" /></a>
+        </div>
+        <div>
+          <h1>GIKI</h1>
+        </div>
+        <div>
+          <a href="./Connexion.html" id="Connection"><p>Se connecter</p></a>
+        </div>
+      </header>
+
+    <form action=""  id="inscript-form" method="POST">
+        <div>
+            <h3 id="title-form-inscript">Inscrivez-vous...</h3>
+        </div>
+        <div class="content-form-obj">
+          <input id="username" type="text" name="username" placeholder="Entre un pseudo...">
+          <p id="err-username"></p>
+        </div>
+        <div class="content-form-obj">
+            <input type="password" id="password" name="password" placeholder="Entre un mot de passe...">
+            <p id="err-password"></p>
+        </div>
+        <a href="./Connexion.html" id="DejaInscrit">Déjà inscrit, connectez vous ici...</a>
+        <div id="div-submit-inscript-form">
+          <input id="submit-inscript-form" type="submit" value="S'inscrire">
+        </div>
+        
+        <div class="content-form-obj">
+          <p id="err-inscription"></p>
+        </div>
+        
+    </form>
+
+    <footer>
+        <div>
+          <img src="./Image/footer1.jpg" alt="footer" />
+        </div>
+        <div>
+          <ul>
+            <li>Noa</li>
+            <li>Romain</li>
+            <li>Maxime</li>
+            <li>Adrien</li>
+          </ul>
+        </div>
+        <div>
+          <img src="./Image/footer1.jpg" alt="footer" />
+        </div>
+      </footer>
+</body>
+</html>

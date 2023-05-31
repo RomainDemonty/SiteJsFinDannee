@@ -1,0 +1,8 @@
+- améliorer la difficulté dans les niveaux de jeu :
+
+	- mettre la vitesse de déplacement du niveau 1 = vitesse lors du niveau 3 car pour le moment trop lent au niveau 1.
+	- changer la manière dont le terrain est généré (sol + trous) par rapport à la génération des spikes et pièces!
+	- ajouter des barres horizontales en l'air sur lesquelles on pourrait sauter et sur lesquelles il y aurait des pièces bonus ou des bombones d'air pour regonfler la balle
+
+- faire la génération des pièces.
+- faire la gestion du dégonflement de la balle et l'apparition des bombones d'air pour regonfler la balle et pouvoir continuer à jouer

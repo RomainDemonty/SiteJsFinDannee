@@ -1,0 +1,9 @@
+* {
+  text-align: center;
+  background-color: lightgray; 
+  /*cursor:url('../Image/spatule.JPEG'), auto;*/
+}
+
+canvas {
+  border: solid black 5px; 
+}
