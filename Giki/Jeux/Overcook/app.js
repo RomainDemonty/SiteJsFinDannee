@@ -554,7 +554,7 @@ function Envoie(){
   var pseudo = "BonjourTest";
   var jeu = "Overcook";
   $.ajax({
-    url: "/Giki v1.0/BD/RedirectionModele.php",
+    url: "RedirectionModele.php",
     method: "POST",
     data: { action:'AjoutScore', score: Score, pseudo: pseudo, NomJeux: jeu },
     success: function(response) {

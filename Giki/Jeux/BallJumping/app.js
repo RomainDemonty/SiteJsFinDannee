@@ -582,15 +582,19 @@ function gameOver(reason)
     });
 
     //arretJeu.call(this);
-    setTimeout(arretJeu.bind(this), 2000);
+    timer = this.time.addEvent({
+        delay: 2000,
+        callback: arretJeu.bind(this),
+        callbackScope: this,
+        repeat: 1
+    });
+    //setTimeout(arretJeu.bind(this), 2000);
 }
 
 function arretJeu()
 {
     this.scene.pause();
-    sendData();   
-
-
+    sendData();
 }
 
 function sendData()
@@ -599,7 +603,7 @@ function sendData()
     var nomJeu = "BallJumping";
 
     $.ajax({
-        url: '/Giki v1.0/BD/RedirectionModele.php',
+        url: 'RedirectionModele.php',
         method: 'POST',
         data: {
             action: 'AjoutScore',

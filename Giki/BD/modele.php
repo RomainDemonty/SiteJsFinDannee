@@ -16,7 +16,7 @@ function AjoutScore($score, $pseudo, $NomJeux)
     $NomJeux = $_POST['NomJeux'];
 
     // Vérifier si le score doit être inséré
-    $sql = "SELECT score FROM table_scores WHERE pseudo = '$pseudo' AND jeu = '$jeu'";
+    $sql = "SELECT score FROM score WHERE pseudo = '$pseudo' AND nomJeux = '$NomJeux'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -25,7 +25,7 @@ function AjoutScore($score, $pseudo, $NomJeux)
 
         if ($score > $existingScore) {
             // Mettre à jour le score existant
-            $sqlUpdate = "UPDATE table_scores SET score = $score WHERE pseudo = '$pseudo' AND jeu = '$jeu'";
+            $sqlUpdate = "UPDATE score SET score = $score WHERE pseudo = '$pseudo' AND nomJeux = '$NomJeux'";
             $conn->query($sqlUpdate);
             echo "Score mis à jour avec succès.";
         } else {
@@ -33,7 +33,7 @@ function AjoutScore($score, $pseudo, $NomJeux)
         }
     } else {
         // Insérer le nouveau score
-        $sqlInsert = "INSERT INTO table_scores (score, pseudo, jeu) VALUES ($score, '$pseudo', '$jeu')";
+        $sqlInsert = "INSERT INTO score (score, pseudo, nomJeux) VALUES ($score, '$pseudo', '$NomJeux')";
         $conn->query($sqlInsert);
         echo "Score inséré avec succès.";
     }

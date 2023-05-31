@@ -12,6 +12,7 @@ if (isset($_POST['action']))
             $nomJeu = $_POST['NomJeux'];
             AjoutScore($score, $pseudo, $nomJeu);
             break;
+
         case 'AjoutUser':
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -31,3 +32,5 @@ if (isset($_POST['action']))
     // Retourner le résultat
     echo json_encode($resultat);
 }
+
+?>
