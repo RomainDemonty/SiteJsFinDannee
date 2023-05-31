@@ -55,7 +55,7 @@ var bool=0;
 var randomNum=0;
 var etat_jerry=0; // 0 rien, 1 carotte, 2 poivron, 3 potiron
 var etat_epouv=0; //down 0, up 1
-var score=3;
+var score=0;
 var objTexteScore;
 
 var soundselect;
@@ -167,7 +167,7 @@ function spawnCorbeauBas(x,y)
     corbeau.setDepth(5);
     console.log('apparition corbeau bas');
     //faire deplacer le corbeau en ligne droite
-    corbeau.body.velocity.y = -32;
+    corbeau.body.velocity.y = -48;
     randomNum=0;
 }
 
@@ -192,7 +192,7 @@ function spawnCorbeauGauche(x,y)
     corbeau.setDepth(5);
     console.log('apparition corbeau gauche');
     //faire deplacer le corbeau en ligne droite
-    corbeau.body.velocity.x = +32;
+    corbeau.body.velocity.x = +48;
     randomNum=0;
 }
 
@@ -257,7 +257,7 @@ function afficherFenetre() {
     boutonQuitter.style.border = "2px solid black";
     boutonQuitter.style.borderRadius = "5px";
     boutonQuitter.onclick = function() {
-    window.location.href = "#"; // Redirection vers une autre page
+    window.location.href = "../index.html"; // Redirection vers une autre page
     };
 
     fenetre.appendChild(contenu);
@@ -289,6 +289,10 @@ function Envoie(){
 //s'excute apres une attente
 function attente()
 {
+
+    
+    
+    
     //les corbeau peuvent revenir
     if(sprite_epouv[1])
     {
@@ -301,10 +305,15 @@ function attente()
 }
 
 //fonction qui add des point quand plante morte
-function recolte(ind,indicesup)
+function recolte(ind,indicesup,numpot)
 {
+    console.log('indice dans la fonction recolte' + indicesup);
     score++;
     sprite_legume[ind].destroy();
+    //sprite_legume[0].destroy();
+
+    console.log('indice a supprimer' + ind);
+    console.log(sprite_legume);
 
     for(var i=0 ; i < sprite_legume.length-1 ; i++)
     {
@@ -312,6 +321,72 @@ function recolte(ind,indicesup)
     }
 
     objTexteScore.setText("Score : " + score);
+
+    //place a libérer dans le vecteur
+
+    //switch pour choisir quel vecteur doit etre libérer
+    switch(numpot)
+    {
+        //vec potager gauche
+        case 1:
+            //switch pour savoir quel case décrémenter
+            switch(indicesup)
+            {
+                case 0:
+                    TabPotGauche[0] = 0;
+                break;
+                case 1:
+                    TabPotGauche[1] = 0;
+                break;
+                case 2:
+                    TabPotGauche[2] = 0;
+                break;
+                case 3:
+                    TabPotGauche[3] = 0;
+                break;
+            }
+        break;
+
+        //vec potager centre
+        case 2:
+            //switch pour savoir quel case décrémenter
+            switch(indicesup)
+            {
+                case 0:
+                    TabPotCentre[0] = 0;
+                break;
+                case 1:
+                    TabPotCentre[1] = 0;
+                break;
+                case 2:
+                    TabPotCentre[2] = 0;
+                break;
+                case 3:
+                    TabPotCentre[3] = 0;
+                break;
+            }
+        break;
+
+        //vec potager droit
+        case 3:
+            //switch pour savoir quel case décrémenter
+            switch(indicesup)
+            {
+                case 0:
+                    TabPotCentre[0] = 0;
+                break;
+                case 1:
+                    TabPotCentre[1] = 0;
+                break;
+                case 2:
+                    TabPotCentre[2] = 0;
+                break;
+                case 3:
+                    TabPotCentre[3] = 0;
+                break;
+            }
+        break;
+    }
 }
 
 function son()
@@ -320,12 +395,12 @@ function son()
 }
 
 //permet de planter un legume et reconnaitre quel legume a planter
-function planter(x,y,numLegume,indicesup)
+function planter(x,y,numLegume,indicesup,numpot)
 {
     var ind;
 
-    console.log('démarre l\'ajout grace a l\'etat de jerry')
-    console.log(numLegume);
+    console.log('indice a supprimer dans vec' + indicesup);
+
     switch(numLegume)
     {
         case 1:
@@ -334,11 +409,12 @@ function planter(x,y,numLegume,indicesup)
             legume = this.physics.add.sprite(x, y, 'carotte');
             sprite_legume.push(legume);
             ind = sprite_legume.length - 1;
-            console.log(sprite_legume);
+
+            console.log('indice qui va etre supprimer' + ind);
 
             setTimeout(function() {
-                recolte(ind,indicesup);
-            }, 20000);
+                recolte(ind,indicesup,numpot);
+            }, 25000);
 
             for(i=0; i < sprite_corbeau.length ; i++)
             {
@@ -357,9 +433,11 @@ function planter(x,y,numLegume,indicesup)
             legume = this.physics.add.sprite(x, y, 'tomateAnim');
             sprite_legume.push(legume);
             ind = sprite_legume.length - 1;
+
+            console.log('indice qui va etre supprimer' + ind);
             setTimeout(function() {
-                recolte(ind,indicesup);
-            }, 20000);             
+                recolte(ind,indicesup,numpot);
+            }, 25000);             
             
 
             for(i=0; i < sprite_corbeau.length ; i++)
@@ -380,11 +458,11 @@ function planter(x,y,numLegume,indicesup)
 
             //récupération indice pour refactor tableau
             ind = sprite_legume.length - 1;
-
+            console.log('indice qui va etre supprimer' + ind);
             //envoi d'une focntion de suppression du legume dans 20 seconde
             setTimeout(function() {
-               recolte(ind,indicesup);
-            }, 20000);
+               recolte(ind,indicesup,numpot);
+            }, 25000);
            
 
             for(i=0; i < sprite_corbeau.length ; i++)
@@ -659,41 +737,43 @@ function update ()
                 {
                   indice = i; // Renvoie l'indice de l'élément trouvé
                   bool = true;
+                  console.log('indice pris en compte dans la boucle' + indice);
                 }
             }
-            console.log('avant le if');
+           
+            console.log('indice pris en compte APRES la boucle' + indice);
             
             etat = etat_jerry;
 
             if(indice<=4)
             {   etat_jerry = 0;
-                console.log('rentre dans le if');
-                console.log('indice' + indice);
+                
+                console.log('indice juste avant de plante' + indice);
                 //lespace est mtn occuper
-                TabPotCentre[indice] = 1;
+                TabPotCentre[indice] = 1;               //attention si commence a 0 opu 1
                 var indicesup=indice;
                 //je plante 
                 switch(indice)
                 {
                     case 0:
                         console.log('plante en haut a gauche');
-                        planter.call(this, tableau_elem[102].x,tableau_elem[102].y,etat,indicesup)
+                        planter.call(this, tableau_elem[102].x,tableau_elem[102].y,etat,indicesup,2)
                     break;
 
                     case 1:
                         console.log('plante en haut a droite');
-                        planter.call(this, tableau_elem[113].x,tableau_elem[113].y,etat,indicesup)
+                        planter.call(this, tableau_elem[113].x,tableau_elem[113].y,etat,indicesup,2)
                     break;
 
                     case 2:
                         console.log('plante en bas a gauche');
-                        planter.call(this, tableau_elem[103].x,tableau_elem[103].y,etat,indicesup)
+                        planter.call(this, tableau_elem[103].x,tableau_elem[103].y,etat,indicesup,2)
                         
                     break;
 
                     case 3:
                         console.log('plante en bas a droite');
-                        planter.call(this, tableau_elem[114].x,tableau_elem[114].y,etat,indicesup)
+                        planter.call(this, tableau_elem[114].x,tableau_elem[114].y,etat,indicesup,2)
                     break;
                 }  
             }
@@ -737,27 +817,28 @@ function update ()
                 //lespace est mtn occuper
                 TabPotGauche[indice] = 1;
                 //je plante 
+                var indicesup=indice;
                 switch(indice)
                 {
                     case 0:
                         console.log('plante en haut a gauche');
-                        planter.call(this, tableau_elem[61].x,tableau_elem[61].y,etat)
+                        planter.call(this, tableau_elem[61].x,tableau_elem[61].y,etat,indicesup,1)
                     break;
 
                     case 1:
                         console.log('plante en haut a droite');
-                        planter.call(this, tableau_elem[72].x,tableau_elem[72].y,etat)
+                        planter.call(this, tableau_elem[72].x,tableau_elem[72].y,etat,indicesup,1)
                     break;
 
                     case 2:
                         console.log('plante en bas a gauche');
-                        planter.call(this, tableau_elem[62].x,tableau_elem[62].y,etat)
+                        planter.call(this, tableau_elem[62].x,tableau_elem[62].y,etat,indicesup,1)
                         
                     break;
 
                     case 3:
                         console.log('plante en bas a droite');
-                        planter.call(this, tableau_elem[73].x,tableau_elem[73].y,etat)
+                        planter.call(this, tableau_elem[73].x,tableau_elem[73].y,etat,indicesup,1)
                         
                     break;         
                 }  
@@ -802,27 +883,28 @@ function update ()
                 //lespace est mtn occuper
                 TabPotDroit[indice] = 1;
                 //je plante 
+                var indicesup=indice;
                 switch(indice)
                 {
                     case 0:
                         console.log('plante en haut a gauche');
-                        planter.call(this, tableau_elem[149].x,tableau_elem[149].y,etat)
+                        planter.call(this, tableau_elem[149].x,tableau_elem[149].y,etat,indicesup,3)
                     break;
 
                     case 1:
                         console.log('plante en haut a droite');
-                        planter.call(this, tableau_elem[160].x,tableau_elem[160].y,etat)
+                        planter.call(this, tableau_elem[160].x,tableau_elem[160].y,etat,indicesup,3)
                     break;
 
                     case 2:
                         console.log('plante en bas a gauche');
-                        planter.call(this, tableau_elem[150].x,tableau_elem[150].y,etat)
+                        planter.call(this, tableau_elem[150].x,tableau_elem[150].y,etat,indicesup,3)
                         
                     break;
 
                     case 3:
                         console.log('plante en bas a droite');
-                        planter.call(this, tableau_elem[161].x,tableau_elem[161].y,etat)                     
+                        planter.call(this, tableau_elem[161].x,tableau_elem[161].y,etat,indicesup,3)                     
                     break;         
                 }  
             }
@@ -874,6 +956,14 @@ function update ()
     {
         //met jerry en animation légume bas
         console.log('active epouventaille');
+        if(etat_epouv == 0)
+        {
+            if(score > 0)
+            {
+                score--;
+                objTexteScore.setText("Score : " + score);
+            }
+        }
         etat_epouv = 1;
 
         //tue les corbeaux en vole
@@ -888,9 +978,11 @@ function update ()
             // Vider le tableau après la suppression
             sprite_corbeau = [];
         }
+
+        
         
         //va remettre la variable etat a false apres 5 secondes via fonction attente
-        setTimeout(attente, 5000);
+        setTimeout(attente, 2500);
 
         //efface l'ancien épouventaille*
         if(sprite_epouv[0])
@@ -913,14 +1005,17 @@ function update ()
 
     if(etat_epouv == 0)
     {
-        if(randomNum != 45)randomNum = Phaser.Math.Between(1, 4000);
+        if(randomNum != 45)randomNum = Phaser.Math.Between(1, 1500);
         else spawnCorbeauBas.call(this, tableau_elem[65].x,tableau_elem[65].y);
         
-        if(randomNum != 45)randomNum = Phaser.Math.Between(1, 4000);
+        if(randomNum != 45)randomNum = Phaser.Math.Between(1, 1500);
         else spawnCorbeauBas.call(this, tableau_elem[120].x,tableau_elem[120].y);
 
-        if(randomNum != 45)randomNum = Phaser.Math.Between(1, 4000);
+        if(randomNum != 45)randomNum = Phaser.Math.Between(1, 1500);
         else spawnCorbeauGauche.call(this, tableau_elem[6].x,tableau_elem[6].y)
+
+        if(randomNum != 45)randomNum = Phaser.Math.Between(1, 1500);
+        else spawnCorbeauGauche.call(this, tableau_elem[3].x,tableau_elem[3].y)
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -986,7 +1081,7 @@ function update ()
     etat_jerry = 0;*/
 
 
-    /*function trouverPointAccrocheProche(joueurX, joueurY) {
+    /*function trouverPointAccroche(joueurX, joueurY) {
     // Définir une variable pour stocker la distance minimale
     let distanceMin = Infinity;
   
