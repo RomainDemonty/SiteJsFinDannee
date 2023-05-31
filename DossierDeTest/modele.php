@@ -65,3 +65,43 @@ function AjoutUser($username, $password)
 
     $conn->close();
 }
+
+//CONNEXION 
+
+function VerifCO($username, $password)
+{
+    $conn = CONNECT();
+
+    if ($conn->connect_error) {
+        die("Connexion échouée: " . $conn->connect_error);
+    }
+
+    //envoi une requete a la bdd
+    $sql="SELECT pseudo FROM utilisateur WHERE pseudo = '$username' AND mdp = '$password'";
+    //récupère le résultat
+    $result = mysqli_query($conn,$sql);
+    //$result = $conn->query($sql);
+
+    if($result)
+    {
+        //Prendre la ligne résultante de la requête 
+        $row = $result -> fetch_row(); 
+
+        if($row)
+        {
+            
+            echo "Les identifiants sont correctes";
+            //$_SESSION['connexion'] = true;
+        }
+        else
+        {
+            echo "Les identifiants sont faux";
+        }
+    }
+
+    //ferme la base de donner
+    $conn->close();
+    var_dump($row);
+    //renvoi ce que la requete a trouver donc le pseudo
+    return $row;
+}

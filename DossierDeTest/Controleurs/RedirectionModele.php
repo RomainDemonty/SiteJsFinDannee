@@ -3,7 +3,7 @@ include './Controleurs/Modele.php';
 
 if (isset($_POST['action'])) {
     $action = $_POST['action'];
-    echo "Test";
+    //echo "Test";
     switch ($action) {
         case 'AjoutScore':
             $score = $_POST['score'];
@@ -15,6 +15,11 @@ if (isset($_POST['action'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
             AjoutUser($username, $password);
+            break;
+        case 'Verif':
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $resultat = VerifCO($username, $password);
             break;
     }
     // Retourner le résultat
