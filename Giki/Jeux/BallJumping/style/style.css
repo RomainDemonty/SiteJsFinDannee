@@ -1,0 +1,35 @@
+*{
+    text-align: center;
+    background-color: lightgray;
+}
+    
+canvas {
+    border: solid black 5px; 
+}
+
+header{
+    background-color: black;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 1000px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+
+h1{
+    color: white;
+}
+
+#home{
+    color: black;
+    font-style: none;
+    width: 50px;
+    height: 30px;
+    padding: 10px;
+    text-align: right;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}

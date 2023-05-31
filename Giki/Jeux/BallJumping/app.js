@@ -138,7 +138,7 @@ function create()
             delay: delaiNiveau,
             callback: updateLevelGame,
             callbackScope: this,
-            repeat: 4
+            repeat: 3
     });
 
     objTexteTempsRestant = this.add.text(10, 10, "", {
@@ -204,7 +204,7 @@ function update()
 
 function createFirstItems()
 {
-    pompeAir = this.physics.add.sprite(2500, 700, "airPump");
+    pompeAir = this.physics.add.sprite(3000, 700, "airPump");
     this.physics.add.collider(pompeAir, balle, recuperePompeAir.bind(this));
     pompeAir.setVelocityX(vitesseDeplacement);
 
@@ -299,7 +299,6 @@ function generateRandomItems()
             {
                 creeGroupePieces(this, (nbPixelsX - 30), 700, true);
             }
-            
 
             elem = terrain.create( (nbPixelsX + 250 + tailleDemiTerrain), 820, nomTerrain).setVelocityX(vitesseDeplacement);
             elem.setImmovable(true);
@@ -311,7 +310,7 @@ function generateRandomItems()
             elem.setImmovable(true);
             this.physics.add.collider(elem, balle);
 
-            let tailleTotaleTerrain = tailleDemiTerrain * 2;
+            let tailleTotaleTerrain = tailleDemiTerrain * 2; 
 
             if(pompeAir.body == undefined && remplissageBonbonne < 55 && isFlatingBall == false)
             {
@@ -322,7 +321,19 @@ function generateRandomItems()
                 rand = Math.random();
                 if(rand < 0.5)
                 {
-                    creeGroupePieces(this, (nbPixelsX + 115), 700, false);
+                    rand = Math.random();
+                    if(rand < 0.5)
+                    {
+                        creeGroupePieces(this, (nbPixelsX + 115), 700, false);
+                    }
+                    else
+                    {
+                        creeGroupePieces(this, (nbPixelsX + 115), 600, false);
+
+                        elem = spikes.create( (nbPixelsX + tailleDemiSpike + 195), 726, nomSpike).setVelocityX(vitesseDeplacement);
+                        elem.setImmovable(true);
+                        this.physics.add.collider(elem, balle, detecteCollisionBalleSpike.bind(this));
+                    }
                 }
                 else
                 {
@@ -330,11 +341,10 @@ function generateRandomItems()
                     var positionSpike = ( (Math.random() * (tailleDemiTerrain - posMinSpike)) + posMinSpike);
                     elem = spikes.create( (nbPixelsX + positionSpike + tailleDemiSpike), 726, nomSpike).setVelocityX(vitesseDeplacement);
                     elem.setImmovable(true);
-                    this.physics.add.collider(elem, balle);
+                    this.physics.add.collider(elem, balle, detecteCollisionBalleSpike.bind(this));
                 }
-                
             }
-
+        
             /*let posMinSpike = tailleTotaleTerrain/4;
             var positionSpike = ( (Math.random() * (tailleDemiTerrain - posMinSpike)) + posMinSpike);
             elem = spikes.create( (nbPixelsX + positionSpike + tailleDemiSpike), 726, nomSpike).setVelocityX(vitesseDeplacement);
@@ -473,6 +483,37 @@ function updateLevelGame()
     if(pompeAir.body != undefined){
         pompeAir.setVelocityX(vitesseDeplacement);
     }
+   
+}
+
+function detecteCollisionBalleSpike()
+{
+    remplissageBonbonne -= 10;
+    sonDegonflementBalle.play();
+
+    var texteAlertCollision = this.add.text(balle.body.x + 25, balle.body.y + 50, "-10", {
+        fontFamily: "Arial",
+        fontSize: 40,
+        color: "#ffffff",
+        stroke: "#000000",
+        strokeThickness: 3,
+        align: "center"
+    });
+    texteAlertCollision.setAlpha(0);
+    
+    this.tweens.add({
+        targets:texteAlertCollision,
+        x: (texteAlertCollision.x + 150),
+        y: (texteAlertCollision.y - 110),
+        alpha: 1,
+        duration: 4000,
+        onComplete: function() {
+            texteAlertCollision.destroy();
+        }
+    });
+
+    balle.setGravityY(0);
+    balle.setVelocityY(vitesseSaut-500);
 }
 
 function regonfleBalle()
@@ -601,21 +642,69 @@ function gameOver(reason)
         duration: 1500,
     });
 
-    //arretJeu.call(this);
     timer = this.time.addEvent({
         delay: 2000,
         callback: arretJeu.bind(this),
         callbackScope: this,
         repeat: 1
     });
-    //setTimeout(arretJeu.bind(this), 2000);
 }
 
 function arretJeu()
 {
     this.scene.pause();
     sendData();
+    afficherFenetre(score);
 }
+
+function afficherFenetre(Score) {
+    var fenetre = document.createElement("div");
+
+    fenetre.style.position = "fixed";
+    fenetre.style.width = "250px";
+    fenetre.style.height = "200px";
+    fenetre.style.backgroundColor = "lightgray";
+    fenetre.style.border = "3px solid black";
+    fenetre.style.borderRadius = "10px";
+    fenetre.style.top = "50%";
+    fenetre.style.left = "50%";
+    fenetre.style.transform = "translate(-50%, -50%)";
+  
+    var contenu = document.createElement("p");
+    contenu.style.fontSize = '24px';   
+    contenu.style.fontWeight = 'bold';     
+    contenu.style.color = 'orange';
+    contenu.style.textAlign = "center";   
+    contenu.innerHTML = "Score: " + Score;
+  
+    var boutonJouer = document.createElement("button");
+    boutonJouer.innerHTML = "Jouer";
+    boutonJouer.style.position = "fixed";
+    boutonJouer.style.margin = "10px";
+    boutonJouer.style.left = "40%";
+    boutonJouer.style.top = "90%";
+    boutonJouer.style.transform = "translate(-50%, -50%)";
+    boutonJouer.onclick = function() {
+      location.reload(); // Actualiser la page
+    };
+  
+    var boutonQuitter = document.createElement("button");
+    boutonQuitter.innerHTML = "Quitter";
+    boutonQuitter.style.position = "fixed";
+    boutonQuitter.style.margin = "10px";
+    boutonQuitter.style.left = "60%";
+    boutonQuitter.style.top = "90%";
+    boutonQuitter.style.transform = "translate(-50%, -50%)";
+    boutonQuitter.onclick = function() {
+      window.location.href = "../../index.html"; // Redirection vers l'accueil
+    };
+  
+    fenetre.appendChild(contenu);
+    fenetre.appendChild(boutonJouer);
+    fenetre.appendChild(boutonQuitter);
+  
+    document.body.appendChild(fenetre);
+  }
 
 function sendData()
 {
