@@ -30,16 +30,19 @@
 
         <form action="./Connexion.html" method="POST" id="FORM_CO">
             
+          <div class="content-form-obj">
             <input type="text" id="pseudo" placeholder="pseudo">
             <p id="erreur_pseudo" class="errname"></p>
-            </br>
-
-            <input type="text" id="mdp" placeholder="password"> 
+          </div>
+          <div class="content-form-obj">
+            <input type="password" id="mdp" placeholder="password"> 
             <p id="erreur_mdp" class="errname"></p>
-            </br>
-
-            </br>
-            <input type="submit" value="CONFIRMER" id="bouton">
+          </div>
+          <input type="submit" value="CONFIRMER" id="bouton">
+          
+          <div class="content-form-obj">
+            <p id="err-connexion"></p>
+          </div>
         </form>
         <a id="inscription" href="./Inscription.html">Pas encore inscrit ?</a>
     </div>  

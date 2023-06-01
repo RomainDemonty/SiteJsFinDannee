@@ -67,6 +67,7 @@ function AjoutUser($username, $password)
 
 function VerifCO($username, $password)
 {
+    $res = 0;
     $conn = CONNECT();
 
     if ($conn->connect_error) {
@@ -78,22 +79,22 @@ function VerifCO($username, $password)
 
     //récupère le résultat
     $result = mysqli_query($conn, $sql);
-    if ($result) {
+    if ($result) 
+    {
         //Prendre la ligne résultante de la requête 
         $row = $result->fetch_row();
-        if ($row) {
-            echo "Les identifiants sont correctes";
-            //$_SESSION['connexion'] = true;
-        } else {
-            echo "Les identifiants sont faux";
-        }
+        
+        if ($row) 
+            $res = 1;
+        else 
+            $res = -1;
     }
 
     //ferme la base de donner
     $conn->close();
 
     //renvoi ce que la requete a trouver donc le pseudo
-    return $row;
+    return $res;
 }
 
 function RecupereScores()

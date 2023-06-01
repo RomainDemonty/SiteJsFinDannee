@@ -42,7 +42,7 @@ function validateForm(username, password)
       }
   }
   
-  /*let regexPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+  let regexPassword = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/;
   if(password == "" || regexPassword.test(password) == false)
   {
       isOk = false;
@@ -52,10 +52,9 @@ function validateForm(username, password)
       }
       else
       {
-        console.log(password);
         errPassword.text("Format invalide! (au moins 8 caracteres dont 1 majuscule, 1 chiffre et un caractere spécial)");
       }
-  }*/
+  }
 
   return isOk;
 }
